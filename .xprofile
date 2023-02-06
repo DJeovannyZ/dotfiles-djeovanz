@@ -1,0 +1,4 @@
+xrandr  --output HDMI-1 --primary --right-of HDMI-2 &
+picom &
+feh --bg-scale wallpapers/arch.png &
+browserfreezefix.sh &
