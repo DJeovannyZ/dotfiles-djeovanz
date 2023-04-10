@@ -9,11 +9,11 @@ groups, tag = [ ], bar.tags
 
 # Workspaces
 for g in (
-  ('1', tag[0], 'max', [Match(wm_class = 'firefox')]),
+  ('1', tag[0], 'max', [Match(wm_class = 'brave')]),
   ('2', tag[1], 'max', [Match(wm_class = 'code')]),
   ('3', tag[2], None, [ ]),
   ('4', tag[3], 'max', [ ]),
-  ('5', tag[4], 'max', [Match(wm_class = 'pcmanfm')]),
+  ('5', tag[4], 'max', [Match(wm_class = 'dolphin')]),
   ('6', tag[5], 'max', [ ]),
   ('7', tag[6], 'max', [ ]),
   ('8', tag[7], 'max', [Match(wm_class = 'discord')]),

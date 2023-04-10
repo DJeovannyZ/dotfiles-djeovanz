@@ -25,7 +25,7 @@ def decoration(side: str = '') -> dict:
     )
   ]}
 
-def iconFont(size = 15) -> dict:
+def iconFont(size = 18) -> dict:
   return {
     'font': 'SauceCodePro Nerd Font',
     'fontsize': size

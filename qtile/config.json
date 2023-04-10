@@ -2,10 +2,10 @@
   "bar": "decorated",
   "secondBar": "decorated2",
   "browser": "",
-  "colorscheme": "catppuccin",
+  "colorscheme": "nord",
   "terminal": {
-    "main": "",
+    "main": "alacritty",
     "floating": ""
   },
-  "wallpaper": "~/wallpaper/wp.png"
+  "wallpaper": "~/wallpaper/nordic-wallpapers/wallpapers/ign_outer_space.png"
 }

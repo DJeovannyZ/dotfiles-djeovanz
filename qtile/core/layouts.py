@@ -5,11 +5,11 @@ from utils import color
 
 # ---- Tiling ---------------------------- #
 config = {
-  'border_focus': color['magenta'],
-  'border_normal': color['bg'],
-  'border_width': 0,
-  'margin': 10,
-  'single_border_width': 0,
+  'border_focus': color['polar_night_3'],
+  'border_normal': color['polar_night_0'],
+  'border_width': 1,
+  'margin': 5,
+  'single_border_width': 2,
   'single_margin': 10,
 }
 
@@ -26,8 +26,8 @@ layouts = [
 
 # ---- Floating -------------------------- #
 floating_layout = layout.Floating(
-  border_focus = color['white'],
-  border_normal = color['bg'],
+  border_focus = color['polar_night_3'],
+  border_normal = color['polar_night_0'],
   border_width = 0,
   fullscreen_border_width = 0,
 
@@ -54,6 +54,7 @@ floating_layout = layout.Floating(
       'Open File',
       'pinentry',
       'wm',
+      'Java',
     ]), # type: ignore
   ],
 )

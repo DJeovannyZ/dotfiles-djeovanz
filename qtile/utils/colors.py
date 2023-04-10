@@ -5,20 +5,13 @@ from utils.settings import config
 
 colorschemes = [
   'catppuccin',
-  'gruvbox_material',
-  'material_ocean',
   'nord',
-  'dracula',
-  'onedarkpro',
-  'tokyonight',
-  'deepocean',
-
 ]
 
 if config['colorscheme'] in colorschemes:
   colorscheme = f"{config['colorscheme']}.json"
 else:
-  colorscheme = 'catppuccin.json'
+  colorscheme = 'nord.json'
 
 path = f'{dir.get()}/utils/colorscheme/{colorscheme}'
 

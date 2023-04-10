@@ -10,11 +10,11 @@ tags = [
 ]
 
 bar = {
-  'background': color['obg'],
-  'border_color': color['obg'],
+  'background': color['bg'],
+  'border_color': color['bg'],
   'border_width': 6,
   'margin': [10, 10, 0, 10],
-  'opacity': 0.8,
+  'opacity': 1,
   'size': 28,
 }
 
@@ -24,7 +24,7 @@ def sep(fg: str, offset = 0, padding = 8) -> TextBox:
     **iconFont(),
     offset = offset,
     padding = padding,
-    text = '󰇙',
+    text = '',
   )
 
 def logo(bg: str, fg: str) -> TextBox:
@@ -44,40 +44,25 @@ def groups(bg: str) -> GroupBox:
     **iconFont(),
     background = bg,
     borderwidth = 1,
-    rounded = True,
-    # highlight_color = color['polar_night_3'],
-    highlight_color = bg, 
     colors = [
-      color['aurora_red'], color['aurora_orange'], color['aurora_yellow'],
-      color['aurora_green'], color['aurora_cyan'], color['aurora_pink'],
-      color['aurora_blue'], color['aurora_purple'], color['aurora_red'],
+      color['cyan'], color['magenta'], color['yellow'],
+      color['red'], color['blue'], color['green'],
+      color['magenta'], color['cyan'], color['yellow'],
+      color['red'],
     ],
-    # highlight_color = ['000000', '282828'],
+    highlight_color = color['bg'],
     highlight_method = 'line',
-    inactive = color['inactive'],
+    inactive = color['black'],
     invert = True,
-    padding = 5,
+    padding = 7,
     rainbow = True,
   )
 
-def window_name(bg: str, fg: str) -> object:
-  return widget.WindowName(
-    **base(bg, fg),
-    format = ' {name}',
-    max_chars = 60,
-    width = CALCULATED,
-  )
-def systrai(bg: str, fg: str) -> object:
-  return widget.Systray(
-    **base(bg, fg),
-    padding = 5,
-  )
-
-def allWidgets(bg: str, fg: str) -> list:
+def volume(bg: str, fg: str) -> list:
   return [
     modify(
       TextBox,
-      **base(bg, color['aurora_red']),
+      **base(bg, fg),
       **decoration('left'),
       **iconFont(),
       text = '',
@@ -85,7 +70,7 @@ def allWidgets(bg: str, fg: str) -> list:
     ),
     modify(
       Volume,
-      **base(bg, color['aurora_red']),
+      **base(bg, fg),
       **powerline('arrow_right'),
       commands = {
         'decrease': 'pamixer --decrease 5',
@@ -95,35 +80,82 @@ def allWidgets(bg: str, fg: str) -> list:
       },
       update_interval = 0.1,
     ),
+  ]
+
+def updates(bg: str, fg: str) -> list:
+  return [
     TextBox(
-      **base(bg, color['aurora_green']),
+      **base(bg, fg),
       **iconFont(),
       offset = -1,
-      text = '󰏕',
+      text = '',
       x = -5,
     ),
     widget.CheckUpdates(
-      **base(bg, color['aurora_green']),
+      **base(bg, fg),
       # **decoration('right'),
-      colour_have_updates = color['aurora_green'],
-      colour_no_updates = color['aurora_green'],
+      colour_have_updates = fg,
+      colour_no_updates = fg,
       display_format = '{updates} updates  ',
       distro = 'Arch_checkupdates',
-      initial_text = 'Up To Date ',
-      no_update_string = 'Up To Date ',
+      initial_text = 'No updates ',
+      no_update_string = 'No updates ',
       padding = 0,
       update_interval = 3600,
     ),
-    # widget.CurrentScreen(
-    #   **base(bg, fg),
-    #   # **decoration('right'),
-    #   active_text = '',
-    #   active_color = fg,
-    #   inactive_text = '',
-    #   inactive_color = fg,
-    # ),
+    widget.CurrentScreen(
+      **base(bg, fg),
+      **decoration('right'),
+      active_text = '',
+      active_color = fg,
+      inactive_text = '',
+      inactive_color = fg,
+    ),
+    
+  ]
+
+def window_name(bg: str, fg: str) -> object:
+  return widget.WindowName(
+    **base(bg, fg),
+    format = '{name}',
+    max_chars = 60,
+    width = CALCULATED,
+  )
+def systrai(bg: str, fg: str) -> object:
+  return widget.Systray(
+    **base(bg, fg),
+    padding = 5,
+  )
+
+def notifications(bg: str, fg: str) -> object:
+  return widget.Notify(
+    **base(bg, fg),
+    default_timeout = 20,
+
+  )
+
+def cpu(bg: str, fg: str) -> list:
+  return [
+    modify(
+      TextBox,
+      **base(bg, fg),
+      **decoration('left'),
+      **iconFont(),
+      offset = 3,
+      text = '',
+      x = 5,
+    ),
+    widget.CPU(
+      **base(bg, fg),
+      **powerline('arrow_right'),
+      format = '{load_percent:.0f}%',
+    )
+  ]
+
+def ram(bg: str, fg: str) -> list:
+  return [
     TextBox(
-      **base(bg, color['aurora_yellow']),
+      **base(bg, fg),
       **iconFont(),
       offset = -2,
       padding = 5,
@@ -131,46 +163,30 @@ def allWidgets(bg: str, fg: str) -> list:
       x = -2,
     ),
     widget.Memory(
-      **base(bg, color['aurora_yellow']),
-      # **powerline('arrow_right'),
+      **base(bg, fg),
+      **powerline('arrow_right'),
       format = '{MemUsed: .0f}{mm} ',
       padding = -1,
     ),
-    modify(
-      TextBox,
-      **base(bg, color['aurora_cyan']),
-      # **decoration('left'),
-      **iconFont(),
-      offset = 3,
-      text = '',
-      x = 5,
-    ),
-    widget.CPU(
-      **base(bg, color['aurora_cyan']),
-      **powerline('arrow_right'),
-      format = '{load_percent:.0f}%',
-    ),
+  ]
+
+def disk(bg: str, fg: str) -> list:
+  return [
     TextBox(
-      **base(bg, color['aurora_purple']),
+      **base(bg, fg),
       **iconFont(),
       offset = -1,
-      text = '󰋊',
+      text = '',
       x = -5,
     ),
     widget.DF(
-      **base(bg, color['aurora_purple']),
-      # **decoration('right'),
-      format = '{f} GB',
+      **base(bg, fg),
+      **decoration('right'),
+      format = '{f} GB  ',
       padding = 0,
       partition = '/',
       visible_on_warn = False,
       warn_color = fg,
-    ),
-    widget.CurrentLayoutIcon(
-      **base(bg, color['aurora_orange']),
-      **decoration('right'),
-      padding = 10,
-      scale = 0.5,
     ),
   ]
 
@@ -198,17 +214,22 @@ def clock(bg: str, fg: str) -> list:
 
 widgets = [
   widget.Spacer(length = 2),
-  logo(color['frost_3'], color['obg']),
-  sep(color['kbg'], offset = -8),
-  groups(color['obg']),
-  sep(color['kbg'], offset = 4, padding = 4),
+  logo(color['blue'], color['bg']),
+  sep(color['black'], offset = -8),
+  groups(None),
+  sep(color['black'], offset = 4, padding = 4),
+  *volume(color['magenta'], color['bg']),
+  *updates(color['red'], color['bg']),
 
   widget.Spacer(),
-  window_name(None, color['aurora_cyan']),
+  window_name(None, color['fg']),
   widget.Spacer(),
 
-  *allWidgets(color['kbg'], color['bg']),
-  sep(color['kbg']),
+  *cpu(color['green'], color['bg']),
+  *ram(color['yellow'], color['bg']),
+  *disk(color['cyan'], color['bg']),
+  sep(color['black']),
+  notifications(None, color['fg']),
   systrai(None, color['fg']),
   # *clock(color['magenta'], color['bg']),
   widget.Spacer(length = 2),

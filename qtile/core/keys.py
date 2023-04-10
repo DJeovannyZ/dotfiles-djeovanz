@@ -56,26 +56,25 @@ for key in [
     # Window Nav
 
     # Browser
-    ([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn("brave")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("pcmanfm")),
+    ([mod], "e", lazy.spawn("dolphin")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
-    ([mod], "o", lazy.spawn("setxkbmap us")),
-    ([mod], "i", lazy.spawn("setxkbmap es")),
-
+    ([mod], "i", lazy.spawn("setxkbmap us")),
+    ([mod], "o", lazy.spawn("setxkbmap -layout es -variant winkeys")),
 
     # Redshift
-    ([mod], "r", lazy.spawn("redshift -O 2400")),
+    ([mod], "r", lazy.spawn("redshift -O 4000")),
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
      # Screenshot
     ([mod], "s", lazy.spawn("/home/djeovanz/.config/rofi/applets/bin/screenshot.sh")),
 
     ([mod], "c", lazy.spawn("code")),
-    ([mod], "v", lazy.spawn("virtualbox")),
+    ([mod], "v", lazy.spawn("/home/djeovanz/.config/rofi/applets/bin/clipboard.sh")),
     ([mod], "p", lazy.spawn("skanlite")),
     ([mod], "u", lazy.spawn("discord")),
     # ------------ Hardware Configs ------------

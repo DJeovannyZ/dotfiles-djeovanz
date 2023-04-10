@@ -4,8 +4,9 @@ from utils import dir
 directory = f'{dir.get()}/config.json'
 settings = {
   'bar': 'decorated',
+  'secondBar': 'decorated2',
   'browser': '',
-  'colorscheme': 'catppuccin',
+  'colorscheme': 'nord',
   'terminal': {
     'main': '',
     'floating': '',
