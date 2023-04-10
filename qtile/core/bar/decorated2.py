@@ -101,6 +101,12 @@ def allWidgets(bg: str, fg: str) -> list:
       long_format = '%B %-d, %Y ',
       padding = 6,
     ),
+    widget.CurrentLayoutIcon(
+      **base(bg, None),
+      **decoration('right'),
+      padding = 10,
+      scale = 0.5,
+    ),
   ]
 
 def clock(bg: str, fg: str) -> list:
