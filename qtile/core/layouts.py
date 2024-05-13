@@ -20,8 +20,8 @@ layouts = [
     min_ratio = 0.30,
     max_ratio = 0.70,
   ),
-
   layout.Max(**config),
+  layout.Matrix(**config),
 ]
 
 # ---- Floating -------------------------- #
@@ -55,6 +55,7 @@ floating_layout = layout.Floating(
       'pinentry',
       'wm',
       'Java',
+      'java',
     ]), # type: ignore
   ],
 )

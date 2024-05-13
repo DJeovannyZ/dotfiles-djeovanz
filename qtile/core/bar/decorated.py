@@ -6,7 +6,7 @@ from extras import Clock, GroupBox, modify, TextBox, Volume, widget
 from utils import color
 
 tags = [
-  '', '', '', '', '', '', '󰓇',  'ﭮ',  '󰖳', 
+  '', '', '', '', '', '', '󰓇',  'ﭮ',  '󰖳', 
 ]
 
 bar = {

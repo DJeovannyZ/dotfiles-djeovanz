@@ -49,7 +49,7 @@ for key in [
     # ------------ App Configs ------------
 
     # Menu
-    ([mod], "m", lazy.spawn("/home/djeovanz/.config/rofi/launchers/type-6/launcher.sh")),
+    ([mod], "m", lazy.spawn("/home/djeovanz/.config/rofi/launchers/type-5/launcher.sh")),
     ([mod, "control"], "m", lazy.spawn("/home/djeovanz/.config/rofi/applets/bin/quicklinks.sh")),
     ([mod, "control"], "l", lazy.spawn("/home/djeovanz/.config/rofi/applets/bin/powermenu.sh")),
 
@@ -62,7 +62,7 @@ for key in [
     ([mod], "e", lazy.spawn("dolphin")),
 
     # Terminal
-    ([mod], "Return", lazy.spawn("alacritty")),
+    ([mod], "Return", lazy.spawn("kitty")),
     ([mod], "i", lazy.spawn("setxkbmap us")),
     ([mod], "o", lazy.spawn("setxkbmap -layout es -variant winkeys")),
 
